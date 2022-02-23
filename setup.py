@@ -1,33 +1,34 @@
-from distutils.core import setup
+from setuptools import setup
+
+
+def readme():
+    with open('README.md') as f:
+        README = f.read()
+    return README
+
+
 setup(
-    # How you named your package folder (MyLib)
-    name='Topsis-Shubham-101903131',
-    packages=['Topsis-Shubham-101903131'],   # Chose the same as "name"
-    version='0.0.1',      # Start with a small number and increase it with every change you make
-    # Chose a license from here: https://help.github.com/articles/licensing-a-repository
-    license='MIT',
-    # Give a short description about your library
-    description='Simple Topsis Alogrithum ',
-    # long_description=  ,
-    author='Shubham Trivedi',                   # Type in your name
-    author_email='strivedi_b19@thapar.edu',      # Type in your E-Mail
-    # Provide either the link to your github or to your website
-    url='https://github.com/Greatgabbar/topsis-package.git',
-    # I explain this later on
-    download_url='https://github.com/Greatgabbar/topsis-package/archive/refs/tags/0.0.1.zip',
-    # Keywords that define your package best
-    keywords=['topsis', 'python', 'Selection'],
-    install_requires=[            # I get to this in a second
-        'numpy',
-        'pandas',
-        're'
-    ],
+    name="Topsis-Shubham-101903131",
+    version="1.1.2",
+    description="A Python package implementing TOPSIS technique.",
+    long_description=readme(),
+    long_description_content_type="text/markdown",
+    author="Shubham Trivedi",
+    author_email="strivedi_be19@thapar.edu",
+    license="MIT",
     classifiers=[
-        "Development Status :: 1 - Planning",
-        "Intended Audience :: Developers",
+        "License :: OSI Approved :: MIT License",
         "Programming Language :: Python :: 3",
-        "Operating System :: Unix",
-        "Operating System :: MacOS :: MacOS X",
-        "Operating System :: Microsoft :: Windows",
+        "Programming Language :: Python :: 3.7",
     ],
+    packages=["topsis_py"],
+    include_package_data=True,
+    install_requires=['numpy',
+                      'pandas'
+                      ],
+    entry_points={
+        "console_scripts": [
+            "topsis=topsis_py.topsis:main",
+        ]
+    },
 )
