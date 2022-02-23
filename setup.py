@@ -11,9 +11,9 @@ setup(
     author='Shubham Trivedi',                   # Type in your name
     author_email='strivedi_b19@thapar.edu',      # Type in your E-Mail
     # Provide either the link to your github or to your website
-    url='https://github.com/user/reponame',
+    url='https://github.com/Greatgabbar/topsis-package.git',
     # I explain this later on
-    download_url='https://github.com/user/reponame/archive/v_01.tar.gz',
+    download_url='https://github.com/Greatgabbar/topsis-package/archive/refs/tags/0.0.1.zip',
     # Keywords that define your package best
     keywords=['topsis', 'python', 'Selection'],
     install_requires=[            # I get to this in a second
