@@ -6,6 +6,8 @@ import math
 import sys
 import pandas as pd
 import numpy as np
+import re
+pattern = re.compile(r"^(\w+)(,\s*\w+)*$")
 
 
 def topsis():
@@ -19,6 +21,15 @@ def topsis():
         weights = sys.argv[2]
         impact = sys.argv[3]
         output_filename = sys.argv[4]
+
+        # checking the comma seprated weights and imapct
+
+        if pattern.match(weights) == None:
+            print("Weights must be Comma seprated")
+            sys.exit()
+        if pattern.match(impact) == None:
+            print("Impact must be Comma seprated")
+            sys.exit()
         weights = weights.split(",")
         weights = [float(x) for x in weights]
         impact = impact.split(",")
@@ -28,7 +39,7 @@ def topsis():
     # handling impact +,- values
     f = 0
     for i in impact:
-        if i != "+" or i != "-":
+        if (i != '+' and i != '-'):
             f = 1
             break
     if f == 1:
@@ -42,6 +53,13 @@ def topsis():
         sys.exit()
     # print(df)
     dff = df.iloc[:, 1:].copy(deep=True)
+    typedf = dff.apply(lambda s: pd.to_numeric(
+        s, errors='coerce').notnull().all())
+
+    for i in typedf:
+        if i == False:
+            print("All Value must be numeric ")
+            sys.exit()
     # print(dff)
     # arr = np.zeros((r, c-1))
     # print(arr)
@@ -66,7 +84,6 @@ def topsis():
         sys.exit()
     # print(dff.columns.dtype)
     dff.astype(float)
-    print(df.applymap(np.isreal))
     for i in dff:
         dff[i].astype(float)
 
@@ -96,7 +113,6 @@ def topsis():
     for i in dff:
         w = weights[index]
         for j in range(0, r):
-            print(dff[i][j])
             dff[i][j] = w*dff[i][j]
         index = index+1
 

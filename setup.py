@@ -20,6 +20,7 @@ setup(
     install_requires=[            # I get to this in a second
         'numpy',
         'pandas',
+        're'
     ],
     classifiers=[
         "Development Status :: 1 - Planning",
