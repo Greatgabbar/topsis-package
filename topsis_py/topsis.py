@@ -22,6 +22,9 @@ try:
 
     # checking the comma seprated weights and imapct
 
+    # if pattern.match(weights) == None:
+    #     print("Weights must be Comma seprated")
+    #     sys.exit()
     for i in weights:
         try:
             float(i)
@@ -31,7 +34,7 @@ try:
                 sys.exit()
     for i in impact:
         if i not in ['+', '-', ',']:
-            print('Impacts must be a comma separated list of +,-')
+            print("Impact must me comma sepearted")
             sys.exit()
     weights = weights.split(",")
     weights = [float(x) for x in weights]
@@ -56,8 +59,7 @@ except:
     sys.exit()
 # print(df)
 dff = df.iloc[:, 1:].copy(deep=True)
-typedf = dff.apply(lambda s: pd.to_numeric(
-    s, errors='coerce').notnull().all())
+typedf = dff.apply(lambda s: pd.to_numeric(s, errors='coerce').notnull().all())
 
 for i in typedf:
     if i == False:

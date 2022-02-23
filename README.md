@@ -21,7 +21,7 @@ Topsis-Shubham-101903131 can be run as in the following example:
 ### In Command Prompt
 
 ```
->> topsis data.csv "1,1,1,1" "+,+,-,+"
+>> topsis data.csv "1,1,1,1" "+,+,-,+" output_file.csv
 ```
 
 <br>
@@ -35,7 +35,7 @@ Topsis-Shubham-101903131 can be run as in the following example:
 >>> d = dataset[:,1:]
 >>> w = [1,1,1,1]
 >>> im = ["+" , "+" , "-" , "+" ]
->>> topsis(d,w,im)
+>>> topsis(d,w,im,"output_file.csv")
 ```
 
 <br>

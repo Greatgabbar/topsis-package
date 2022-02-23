@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: Topsis-Shubham-101903131
-Version: 1.1.2
+Version: 1.1.3
 Summary: A Python package implementing TOPSIS technique.
 Home-page: UNKNOWN
 Author: Shubham Trivedi
@@ -29,7 +29,7 @@ Description: # TOPSIS-Python
         ### In Command Prompt
         
         ```
-        >> topsis data.csv "1,1,1,1" "+,+,-,+"
+        >> topsis data.csv "1,1,1,1" "+,+,-,+" output_file.csv
         ```
         
         <br>
@@ -43,7 +43,7 @@ Description: # TOPSIS-Python
         >>> d = dataset[:,1:]
         >>> w = [1,1,1,1]
         >>> im = ["+" , "+" , "-" , "+" ]
-        >>> topsis(d,w,im)
+        >>> topsis(d,w,im,"output_file.csv")
         ```
         
         <br>

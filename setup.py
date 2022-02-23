@@ -9,7 +9,7 @@ def readme():
 
 setup(
     name="Topsis-Shubham-101903131",
-    version="1.1.2",
+    version="1.1.3",
     description="A Python package implementing TOPSIS technique.",
     long_description=readme(),
     long_description_content_type="text/markdown",
