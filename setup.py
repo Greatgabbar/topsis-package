@@ -8,6 +8,7 @@ setup(
     license='MIT',
     # Give a short description about your library
     description='Simple Topsis Alogrithum ',
+    # long_description=  ,
     author='Shubham Trivedi',                   # Type in your name
     author_email='strivedi_b19@thapar.edu',      # Type in your E-Mail
     # Provide either the link to your github or to your website

@@ -9,20 +9,32 @@ import numpy as np
 
 
 def topsis():
-    if len(sys.argv) != 4:
+    # handling input arguments
+    if len(sys.argv) != 5:
         print('NOT ENOUGH ARG')
         sys.exit()
-
+    # handling input values
     try:
         filename = sys.argv[1]
         weights = sys.argv[2]
         impact = sys.argv[3]
+        output_filename = sys.argv[4]
         weights = weights.split(",")
         weights = [float(x) for x in weights]
         impact = impact.split(",")
     except:
-        print("INVALID INOUT VALUES")
+        print("INVALID INPUT VALUES")
         sys.exit()
+    # handling impact +,- values
+    f = 0
+    for i in impact:
+        if i != "+" or i != "-":
+            f = 1
+            break
+    if f == 1:
+        print("Impacts must be either +ve or -ve.")
+        sys.exit()
+    # handling input file
     try:
         df = pd.read_csv(filename)
     except:
@@ -42,6 +54,7 @@ def topsis():
     rms = {}
     r = len(dff)
     c = len(dff.columns)
+    # handling number of columns
     if c < 3:
         print("Input file must contain three or more columns")
         sys.exit()
@@ -155,4 +168,5 @@ def topsis():
     print(ranks)
     df["TScore"] = pd.Series(pscore)
     df["Rank"] = pd.Series(ranks)
+    df.to_csv(output_filename)
     print(df)
